@@ -1,25 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Simple Calculator</title>
 </head>
+
 <body>
-    <form action="" method="post">
-        <label for="number">Enter a number:</label>
-        <input type="number" name="num1" placeholder="Enter a number" required>
-        <select name="operation" required>
-            <option value="add">Add</option>
-            <option value="subtract">Subtract</option>
-            <option value="multiply">Multiply</option>
-            <option value="divide">Divide</option>
-        </select>
-        <br>
-        <label for="number">Enter a number:</label>
-        <input type="number" name="num2" placeholder="Enter a number" required>
-        <button type="submit" name="calculate">Calculate</button>
-    </form>
+    <div class="gradient-border">
+        <header>
+            <h1>Simple Calculator</h1>
+            <p>Enter two numbers and choose an operation.</p>
+        </header>
+        <main>
+            <div class="container">
+                <form action="" method="post">
+                    <div class="num1 num">
+                        <label for="number">Enter a number:</label>
+                        <input type="number" name="num1" placeholder="Enter a number" required>
+                    </div>
+                    <br>
+                    <div class="num2 num"></div>
+                    <label for="number">Enter a number:</label>
+                    <input type="number" name="num2" placeholder="Enter a number" required>
+                    <br>
+                    <button type="submit" name="calculate">Calculate</button>
+                    <select name="operation" required>
+                        <option value="add">Add</option>
+                        <option value="subtract">Subtract</option>
+                        <option value="multiply">Multiply</option>
+                        <option value="divide">Divide</option>
+                    </select>
+                </form>
+        </main>
+    </div>
+    </div>
 
     <?php
     if (isset($_POST['num1']) && isset($_POST['num2']) && isset($_POST['operation'])) {
@@ -43,7 +60,7 @@
             $result = "Invalid operation";
         }
 
-        echo "<h2>Result: $result</h2>";
+        echo "<div class='hello'><h2>Result: $result</h2></div>";
     } else {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             echo "<h2>Please provide both numbers and select an operation.</h2>";
@@ -51,4 +68,5 @@
     }
     ?>
 </body>
+
 </html>
